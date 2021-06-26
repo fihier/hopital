@@ -8,6 +8,7 @@
     </div>
     <div class="container">
         <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+        <div class="alert alert-success text-center" role="alert" *ngIf="successMessage">{{successMessage}}</div>
         <form [formGroup]="registerForm">
             <div class="form-row">
                 <div class="col-md-6 form-group">
@@ -59,18 +60,16 @@
                 <input type="file" class="form-control" formControlName="photo" name="photo" id="photo" placeholder="photo de profile" />
             </div>
 
-            <div class="text-center">
-                <div class="form-row">
+                <div class="form-row" style="margin-left: 31%;">
                     <div>
-                        <button (click)="onSubmit()" [disabled]="registerForm.invalid">Cree a compte</button>
+                        <button (click)="onSubmit()" [disabled]="registerForm.invalid" style="cursor: pointer;">Cree a compte</button>
                     </div>
                     <div style="padding-left: 0.5%;">
                         <button type="reset">Annuler</button>
                     </div>
                 </div>
-            </div>
         </form>
-        <p style="padding-left: 38%; margin-bottom: 1%;">Already have an account? <a routerLink="/login">Login</a></p>
+        <p style="padding-left: 32%; margin-bottom: 2%;">avez vous deja un compte? <a routerLink="/login">Connexion</a></p>
     </div>
 
 </section><!-- End Contact Section -->

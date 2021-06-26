@@ -61,11 +61,14 @@ export class UsersService {
                                                                                               '&datenais=' + newUser.dateNaissance + 
                                                                                               '&lieunais=' + newUser.lieuNaissance +
                                                                                               '&password=' + newUser.passwordUtilisateur;
+                                                                                              '&photo=' + newUser.photoUtilisateur;
 
         this.http.get(url).subscribe(
           (data: Result)=>{
             if(data.status == 200){
-              this.authentifier(newUser);
+              this.user = data.args;
+              this.isAuth = true;
+              this.emitUser();
               resolve(data.result);
             }else{
               reject(data.message);

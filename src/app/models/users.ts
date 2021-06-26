@@ -9,6 +9,7 @@ export interface Users {
     lieuResidence?: string;
     sexeUtilisateur?: string;
     passwordUtilisateur: string;
+    photoUtilisateur?: string;
     // compte: boolean;
     // idPatient: string;
 }

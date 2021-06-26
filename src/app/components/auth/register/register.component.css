@@ -1,9 +1,9 @@
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
-.contact{
+/* .contact{
     justify-content: center;
-}
+} */
 button {
     background: #1977cc;
     border: 0;
@@ -18,7 +18,7 @@ button {
 }
 .contact{
     width: 70%;
-    margin-top: 7%;
+    margin-top: 5%;
     background-color: #f1f7fd;
     padding: 40px 60px;
     border-radius: 10px;
