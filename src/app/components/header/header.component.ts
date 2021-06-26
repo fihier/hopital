@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 
@@ -10,7 +9,8 @@ import { UsersService } from '../../services/users.service';
 export class HeaderComponent implements OnInit {
 
   isAuth = false;
-  constructor(private userService: UsersService, private router: Router) { }
+
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
     this.isAuth = this.userService.isAuth;
@@ -18,10 +18,11 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(){
+
     this.userService.logout();
     this.isAuth = this.userService.isAuth;
-  }
 
+  }
 
   // redirection():void{
   //   if(this.isAuth = true){

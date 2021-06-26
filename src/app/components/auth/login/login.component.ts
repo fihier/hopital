@@ -29,20 +29,24 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit():void{
-      const email = this.loginForm.get('email').value;
-      const password = this.loginForm.get('password').value;
-      const newUser: Users = {adresseMailUtilisateur: email, passwordUtilisateur: password};
-      this.userService.authentifier(newUser).then(
-        (data)=>{
-            this.router.navigate(['/homeUser']);
-        } 
-      ).catch((error)=>{
-        this.errorMessage = error;
-        setTimeout(()=>{
-          this.errorMessage = null;
-        },3000)
-        console.log(error);
-        
-    })
+    const email = this.loginForm.get('email').value;
+    const password = this.loginForm.get('password').value;
+    const newUser: Users = {adresseMailUtilisateur: email, passwordUtilisateur:password};
+    this.userService.authentifier(newUser).then(
+      (data)=>{
+        this.router.navigate(['/homeUser']);
+      }
+    ).catch((error)=>{
+      this.errorMessage = error;
+      setTimeout(() =>{
+        this.errorMessage = null;
+      },3000);
+      console.log(error);
+
+    });
+
+    //console.log({email: email, password: password});
+
   }
+
 }

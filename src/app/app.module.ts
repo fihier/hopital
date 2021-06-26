@@ -33,6 +33,7 @@ import { ListAbonnementComponent } from './components/home/home-main-abonnement/
 import { CompteComponent } from './components/compte/compte.component';
 import { ListCompteComponent } from './components/compte/list-compte/list-compte.component';
 import { ParametreComponent } from './components/home/parametre/parametre.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes =[
   {
@@ -41,6 +42,7 @@ const routes: Routes =[
   }, 
   {
     component: ParametreComponent,
+    canActivate: [AuthGuard],
     path: 'mesParametre'
   },
   {
@@ -61,10 +63,12 @@ const routes: Routes =[
   },
   {
     component: HomeMainAppointmentComponent,
+    canActivate: [AuthGuard],
     path: 'rendez-vous'
   },
   {
     component: HomeMainAbonnementComponent,
+    canActivate: [AuthGuard],
     path: 'abonnement'
   },
   {
