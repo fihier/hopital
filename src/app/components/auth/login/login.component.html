@@ -1,0 +1,23 @@
+<app-headercontact></app-headercontact>
+<div class="form">
+    <form [formGroup]="loginForm">
+        <h1>Connexion</h1>
+        <div class="social-media">
+            <p><i class="icofont-twitter"></i></p>
+            <p><i class="icofont-facebook"></i></p>
+            <p><i class="icofont-instagram"></i></p>
+            <p><i class="icofont-linkedin"></i></p>
+        </div>
+        <p class="chose-email">Ou utiliser votre adresse Email</p>
+        <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+        <div class="form-group">
+            <input type="email" class="form-control" formControlName="email" name="email" id="email" placeholder="Email">
+            <input type="password" class="form-control" formControlName="password" name="password" id="password" placeholder="Mot de Passe">
+        </div>
+        <div align="center">
+            <button (click)="onSubmit()" class="btn btn-primary" [disabled]="loginForm.invalid">Se connecter</button>
+        </div>
+        <p class="inscription" align="center">Looking to <a routerLink="/register">create an account ?</a></p>
+        <p class="inscription" align="center"><a routerLink="/forget-password">Forgot password ?</a></p>
+    </form>
+</div>

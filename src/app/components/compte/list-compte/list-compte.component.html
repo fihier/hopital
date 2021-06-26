@@ -1,0 +1,46 @@
+<div class="section-title" style="padding-top: 5%;">
+    <h2>Liste des Compte</h2>
+  </div>
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr class="table-light">
+                <th scope="col">#</th>
+                <th scope="col">email</th>
+                <th scope="col">phone</th>
+                <th scope="col">nom</th>
+                <th scope="col">prenom</th>
+                <th scope="col">Date Nais</th>
+                <th scope="col">Lieu</th>
+                <th scope="col">sexe</th>
+                <th scope="col">adresse</th>
+                <th scope="col">Id patient</th>
+                <th scope="col">Compte</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let compte of comptes">
+            <tr>
+                <th scope="row">{{ compte.idUtilisateur }}</th>
+                <th>{{ compte.adresseMailUtilisateur }}</th>
+                <th>{{ compte.numeroTelephoneUtilisateur }}</th>
+                <th>{{ compte.nomUtilisateur }}</th>
+                <th>{{ compte.prenomUtilisateur }}</th>
+                <th>{{ compte.dateNaissance }}</th>
+                <th>{{ compte.lieuNaissance }}</th>
+                <th>{{ compte.sexeUtilisateur }}</th>
+                <th>{{ compte.lieuResidence }}</th>
+                <th>{{ compte.idPatient }}</th>
+                <th>{{ compte.compte }}</th>
+            </tr>
+            <!-- <tr>
+                <th scope="row">{{abonnement.idAbonnement}}</th>
+                <th>{{abonnement.libelleAbonnement}}</th>
+                <th>{{abonnement.dateAbonnement}}</th>
+                <th>{{abonnement.heureAbonnement}}</th>
+                <td>{{abonnement.periodeAbonnement}}</td>
+                <td>{{abonnement.dureeAbonnement}}</td>
+                <td>{{abonnement.prixAbonnement}}</td>
+            </tr> -->
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,46 @@
+<div class="section-title" style="padding-top: 5%;">
+    <h2>Liste des Abonnements</h2>
+  </div>
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr class="table-light">
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+                <th scope="col">description</th>
+                <th scope="col">price</th>
+                <th scope="col">stock</th>
+                <th scope="col">image</th>
+                <th scope="col">category</th>
+
+                <!-- <th scope="col">#</th>
+                <th scope="col">Libelle</th>
+                <th scope="col">Date</th>
+                <th scope="col">Heure</th>
+                <th scope="col">Periode</th>
+                <th scope="col">Durée</th>
+                <th scope="col">Prix</th> -->
+            </tr>
+        </thead>
+        <tbody *ngFor="let abonnement of abonnements">
+            <tr>
+                <th scope="row">{{abonnement.idProduct}}</th>
+                <th>{{abonnement.name}}</th>
+                <th>{{abonnement.description}}</th>
+                <th>{{abonnement.price}}</th>
+                <th>{{abonnement.stock}}</th>
+                <th>{{abonnement.image}}</th>
+                <th>{{abonnement.category}}</th>
+            </tr>
+            <!-- <tr>
+                <th scope="row">{{abonnement.idAbonnement}}</th>
+                <th>{{abonnement.libelleAbonnement}}</th>
+                <th>{{abonnement.dateAbonnement}}</th>
+                <th>{{abonnement.heureAbonnement}}</th>
+                <td>{{abonnement.periodeAbonnement}}</td>
+                <td>{{abonnement.dureeAbonnement}}</td>
+                <td>{{abonnement.prixAbonnement}}</td>
+            </tr> -->
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+
+.progress{
+	height: 20%;
+	margin: 10%;
+	backface-visibility: #ddd;
+}
+.progress-bar{
+	background: #1977cc;
+    margin-bottom: 0%;
+} 
+.progress h5{
+	text-shadow: 1px 1px 1px #000;
+    justify-content: center;
+}

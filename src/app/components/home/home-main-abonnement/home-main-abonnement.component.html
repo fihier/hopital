@@ -1,0 +1,54 @@
+<!-- ======= Appointment Section ======= -->
+<section id="appointment" class="appointment section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Prendre un Abonnement</h2>
+      <p>veillez remplir tous les champs du formulaire, afin de pouvoir payer pour souscrire a un abonnement sur notre plate-forme, merci de nous faire confiance pour le suivi de votre etat de santé .</p>
+    </div>
+
+    <form> <!--[formGroup]="abonForm" -->
+      <div class="form-row">
+        <div class="col-md-6 form-group">
+          <input type="text" formControlName="libelle" name="libelle" class="form-control" id="libelle"
+            placeholder="Libelle">
+
+        </div>
+        <div class="col-md-6 form-group">
+          <input type="date" formControlName="date" name="date" class="form-control" id="date" placeholder="Date">
+
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 form-group">
+          <select formControlName="departement" name="departement" id="departement" class="form-control">
+            <option value="">Select Departement</option>
+            <option value="pediatrics">Pediatrics</option>
+            <option value="cardiologie">Cardiologie</option>
+            <option value="neurologie">Neurologie</option>
+            <option value="hepatologie">Hepatologie</option>
+            <option value="odontologie">Odontologie</option>
+            <option value="dermatogie">Dermatogie</option>
+          </select>
+
+        </div>
+        <div class="col-md-6 form-group">
+          <select formControlName="periode" name="periode" id="periode" class="form-control">
+            <option value="">Select Periode</option>
+            <option value="mensuelle">Mensuelle</option>
+            <option value="trimestrielle">Trimestrielle</option>
+            <option value="annuelle">Annuelle</option>
+          </select>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <textarea class="form-control" formControlName="description" name="description" rows="5"
+          placeholder="decrivez nous en quelque mots de quoi es ce que vous souffrez (Symptome,Manifestion)"></textarea>
+      </div>
+      <div class="text-center"><button (click)="onSubmit()">Soumettre</button></div>
+    </form>
+
+  </div>
+</section><!-- End Appointment Section -->

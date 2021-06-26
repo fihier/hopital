@@ -1,0 +1,76 @@
+<app-headercontact></app-headercontact>
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Register des Patients</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+        <form [formGroup]="registerForm">
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <input type="text" formControlName="nom" name="nom" class="form-control" id="nom" placeholder="Nom" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <input type="text" class="form-control" formControlName="prenom" name="prenom" id="prenom" placeholder="Prenom" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <input type="text" formControlName="adresse" name="adresse" class="form-control" id="adresse" placeholder="adresse" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <select name="sexe" formControlName="sexe" id="sexe" class="form-control">
+                        <option value="">Sexe</option>
+                        <option value="maxculin">Maxculin</option>
+                        <option value="feminin">Feminin</option>
+                      </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <input type="number" formControlName="phone" name="phone" class="form-control" id="phone" placeholder="Phone" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <input type="email" class="form-control" formControlName="email" name="email" id="email" placeholder="email" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <input type="date" formControlName="dateNais" name="dateNais" class="form-control" id="dateNais"
+                        placeholder="date de Naissance" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <input type="text" formControlName="lieuNais" class="form-control" name="lieuNais" id="lieuNais"
+                        placeholder="lieu de Naissance" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <input type="password" formControlName="password" name="password" class="form-control" id="password" placeholder="password" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <input type="password" formControlName="confirmPassword" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="confirme Password" />
+                </div>
+            </div>
+            <div class="col-md-16 form-group">
+                <input type="file" class="form-control" formControlName="photo" name="photo" id="photo" placeholder="photo de profile" />
+            </div>
+
+            <div class="text-center">
+                <div class="form-row">
+                    <div>
+                        <button (click)="onSubmit()" [disabled]="registerForm.invalid">Cree a compte</button>
+                    </div>
+                    <div style="padding-left: 0.5%;">
+                        <button type="reset">Annuler</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <p style="padding-left: 38%; margin-bottom: 1%;">Already have an account? <a routerLink="/login">Login</a></p>
+    </div>
+
+</section><!-- End Contact Section -->

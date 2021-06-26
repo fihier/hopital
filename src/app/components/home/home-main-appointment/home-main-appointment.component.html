@@ -1,0 +1,37 @@
+ <!-- ======= Appointment Section ======= -->
+ <section id="appointment" class="appointment section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Prendre rendez-vous</h2>
+        <p>Selectionner une date et une heure qui vous convient entre 07h et 15h pour une sceance de teleconsultation.</p>
+      </div>
+
+      <form [formGroup]="rdvForm">
+        <div class="form-row">
+          <div class="col-md-6 form-group">
+            <input type="date" formControlName="date" name="date" class="form-control" id="date" placeholder="date">
+          </div>
+          <div class="col-md-6 form-group">
+            <input type="time" formControlName="heure" name="heure" class="form-control" id="heure" placeholder="heure">
+          </div>
+          <!-- <div class="col-md-6 form-group">
+            <select type="time" name="heure" id="heure" class="form-control">
+              <option value="">Select heure</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+            </select>
+          </div> -->
+        </div>
+        <div class="text-center"><button (click)="onSubmit()" [disabled]="rdvForm.invalid">Soumettre</button></div>
+      </form>
+
+    </div>
+  </section><!-- End Appointment Section -->
