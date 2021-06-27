@@ -9,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeuserComponent implements OnInit {
 
+  nom;
   constructor(private userService:UsersService) { }
 
   ngOnInit(): void {
+    this.nom =  this.userService.nomUser;
   }
 
 }
