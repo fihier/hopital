@@ -15,5 +15,5 @@ export class CompteService {
   getCompte():Observable<Response>{
     return this.http.get<Response>(this.baseUrl);
   }
-  
+
 }

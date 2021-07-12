@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../services/users.service';
+import { Router } from '@angular/router';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-header',
@@ -8,28 +9,32 @@ import { UsersService } from '../../services/users.service';
 })
 export class HeaderComponent implements OnInit {
 
-  isAuth = false;
+  isAuth;
+  user = '';
+  connect;
 
-  constructor(private userService: UsersService) { }
+  constructor(private keycloakService: KeycloakService, private router: Router) { }
 
   ngOnInit(): void {
-    this.isAuth = this.userService.isAuth;
-    console.log(this.isAuth);
+    this.initializeUserOption();
+    this.isAuth = this.keycloakService.isLoggedIn
   }
+
+  connexion(){
+    this.connect = this.keycloakService.login()
+  }
+
+  private initializeUserOption(): void{
+    this.user = this.keycloakService.getUsername();
+  }
+
 
   logout(){
-
-    this.userService.logout();
-    this.isAuth = this.userService.isAuth;
-
+    this.keycloakService.logout('http://localhost:4200');
   }
 
-  // redirection():void{
-  //   if(this.isAuth = true){
-  //     this.router.navigate(['/abonnement']);
-  //   }else{
-  //     this.router.navigate(['/login']);
-  //   }
-  // }
+  isAdmin(){
+    this.keycloakService.isUserInRole
+  }
 
 }

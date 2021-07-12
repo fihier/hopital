@@ -50,7 +50,7 @@ export class UsersService {
     )
   }
 
-  
+
 
   createUser(newUser: Users) {
     return new Promise(
@@ -72,7 +72,6 @@ export class UsersService {
 
             if (data.status == 200) {
               this.user = data.args;
-              this.isAuth = true;
               this.emitUser();
               resolve(data.result);
             } else {

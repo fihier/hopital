@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component, APP_INITIALIZER } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +23,7 @@ import { HomeMainGalleryComponent } from './components/home/home-main-gallery/ho
 import { HomeMainContactComponent } from './components/home/home-main-contact/home-main-contact.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component'
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeuserComponent } from './components/homeuser/homeuser.component';
 import { HomemedecinComponent } from './components/homemedecin/homemedecin.component';
@@ -33,30 +33,47 @@ import { ListAbonnementComponent } from './components/home/home-main-abonnement/
 import { CompteComponent } from './components/compte/compte.component';
 import { ListCompteComponent } from './components/compte/list-compte/list-compte.component';
 import { ParametreComponent } from './components/home/parametre/parametre.component';
-import { AuthGuard } from './services/auth.guard';
+import { AuthGuard } from './services/app.guard';
+//import { KeycloakSecuService } from './services/keycloak-secu.service';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializeKeycloak } from './services/app.init';
+import { VideoCallComponent } from './components/home/video-call/video-call.component';
+import { ChatComponent } from './components/home/chat/chat.component';
 
 const routes: Routes =[
   {
     component: HomeMainAboutComponent,
     path: 'about'
-  }, 
+  },
   {
     component: ParametreComponent,
     canActivate: [AuthGuard],
     path: 'mesParametre'
   },
   {
+    component: VideoCallComponent,
+    canActivate: [AuthGuard],
+    path: 'teleconsultation'
+  },
+  {
+    component: ChatComponent,
+    canActivate: [AuthGuard],
+    path: 'chat'
+  },
+  {
     component: ListCompteComponent,
     path: 'listCompte'
-  }, 
+  },
   {
     component: HomeuserComponent,
+    data: { roles: ['role_patient'] },
     path: 'homeUser'
-  }, 
+  },
   {
     component: HomemedecinComponent,
+    data: { roles: ['role_medecin'] },
     path: 'homeMedecin'
-  }, 
+  },
   {
     component: HomeMainServiceComponent,
     path: 'service'
@@ -90,15 +107,15 @@ const routes: Routes =[
   {
     component: LoginComponent,
     path: 'login'
-  }, 
+  },
   {
     component: RegisterComponent,
     path: 'register'
-  }, 
+  },
   {
     component: HomeComponent,
     path: 'home'
-  }, 
+  },
   {
     path:'',
     component: HomeComponent,
@@ -143,7 +160,9 @@ const routes: Routes =[
     ListAbonnementComponent,
     CompteComponent,
     ListCompteComponent,
-    ParametreComponent
+    ParametreComponent,
+    VideoCallComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -151,9 +170,18 @@ const routes: Routes =[
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    KeycloakAngularModule,
+    BrowserModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

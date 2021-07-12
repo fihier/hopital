@@ -1,5 +1,5 @@
-import { UsersService } from 'src/app/services/users.service';
 import { Component, OnInit } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 // import { Router } from '@angular/router'
 
 @Component({
@@ -9,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeuserComponent implements OnInit {
 
-  nom;
-  constructor(private userService:UsersService) { }
+  user= '';
+
+  constructor(private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
-    this.nom =  this.userService.nomUser;
+    this.initializeUserOption();
+  }
+
+  private initializeUserOption(): void{
+    this.user = this.keycloakService.getUsername();
   }
 
 }

@@ -1,0 +1,19 @@
+<div class="container" style="padding-top: 4%;">
+  <div class="section-title">
+    <h2>Teleconsultation</h2>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 video-box d-flex justify-content-center align-items-stretch">
+      <p class="video-description">local:</p>
+      <video #local_video [autoplay]="true" [muted]="true"></video>
+    </div>
+    <div class="col-lg-6 video-box d-flex justify-content-center align-items-stretch">
+      <p class="video-description">remote:</p>
+      <video #received_video [autoplay]="true"></video>
+    </div>
+  </div>
+  <button class="btn btn-primary mat-raised-button" (click)="startLocalVideo()" [disabled]="localVideoActive">Start Local</button>
+  <button class="btn btn-primary mat-raised-button" (click)="pauseLocalVideo()" [disabled]="!localVideoActive">Stop Local</button>
+  <button class="btn btn-primary mat-raised-button" (click)="call()" [disabled]="inCall || !localVideoActive">Call</button>
+  <button class="btn btn-primary mat-raised-button" (click)="hangUp()" [disabled]="!inCall">Hangup</button>
+</div>

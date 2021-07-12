@@ -5,7 +5,19 @@
 export const environment = {
   production: false,
   API: "http://localhost/ecommerce/backend/api/",
-  API_KEY: "adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41"
+  API_KEY: "adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41",
+
+  CHAT_URL: 'ws://echo.websocket.org/',
+
+  wsEndpoint: 'ws://localhost:8081/',
+  RTCPeerConfiguration: {
+    iceServers: [
+      {
+        urls: 'stun:stun1.l.google.com:19302'
+      }
+    ]
+  }
+
   /*prefUrlImage:"http://localhost/ecommerce/backend/images/products/"*/
 };
 

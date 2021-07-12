@@ -1,3 +1,4 @@
+import { KeycloakService } from 'keycloak-angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParametreComponent implements OnInit {
 
-  constructor() { }
+  user='';
+  constructor(private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
+    this.initializeUserOption();
   }
 
+  private initializeUserOption(): void{
+    this.user = this.keycloakService.getUsername();
+  }
 }
