@@ -2,13 +2,18 @@
 .progress{
 	height: 20%;
 	margin: 15%;
-	backface-visibility: #ddd;
+	backface-visibility: rgb(221, 221, 221);
 }
 .progress-bar{
+	background: #1977cc;
+    margin-bottom: 0%;
+}
+.progress-bar2{
 	background: #1977cc;
     margin-bottom: 0%;
 }
 .progress h5{
 	text-shadow: 1px 1px 1px #000;
     justify-content: center;
+	color:rgb(3, 63, 3);
 }

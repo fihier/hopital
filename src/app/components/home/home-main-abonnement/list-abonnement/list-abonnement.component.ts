@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbonnementService } from '../../../../services/abonnement.service';
-import { Abonnement } from '../../../../models/abonnement';
+import { AbonnementService } from 'src/app/services/abonnement.service';
 import { Response } from '../../../../models/response';
 
 @Component({
@@ -10,20 +9,33 @@ import { Response } from '../../../../models/response';
 })
 export class ListAbonnementComponent implements OnInit {
 
-  @Input() abonnements: Abonnement[];
-  abonSub;
+  abonnements;
+  abnSub;
   constructor(private abonServ:AbonnementService) { }
 
   ngOnInit(): void {
-    // this.abonSub = this.abonServ.getAbonnement().subscribe(
-    //   (response:Response)=>{
-    //     //console.log(response);
-    //     this.abonnements = response.result;
+
+    this.abnSub = this.abonServ.getProducts().subscribe(
+      (response: Response)=>{
+        this.abonnements = response.result;
+      },
+      (error)=>{
+        console.log(error);
+
+      }
+
+    )
+
+    // this.abonServ.getAbonnement().subscribe(
+    //   (response)=>{
+    //     // console.log(response);
+    //     this.abonnements = response;
     //   },
     //   (error)=>{
     //     console.log(error);
     //   }
     // )
   }
+
 
 }

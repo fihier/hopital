@@ -27,8 +27,8 @@
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
           <div class="icon-box">
             <div class="icon"><i class="icofont-dna-alt-2"></i></div>
-            <h4><a routerLink="/chat">Conseil</a></h4>
-            <p>Nos patients beneficient egalement de conseils medicaux selon leur probleme de sante.</p>
+            <h4><a routerLink="/chat">Messagerie</a></h4>
+            <p>Nos patients beneficient egalement de cette interface pour contacter leurs medecin 24h/24h.</p>
           </div>
         </div>
 
@@ -40,11 +40,18 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" *ngIf="!isAuth">
           <div class="icon-box">
             <div class="icon"><i class="icofont-drug"></i></div>
             <h4><a routerLink="/ordonance">Une prescription</a></h4>
             <p>A la suite d'une teleconsultation, nos medecins peuvent effectuer une prescription de d'examen ou de medicament.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+          <div class="icon-box">
+            <div class="icon"><i class="icofont-drug"></i></div>
+            <h4><a routerLink="/ordonance">Conseil</a></h4>
+            <p>notre plateforme met a votre disposition une panoplie de conseil pour ameliorer votre quotidien</p>
           </div>
         </div>
 

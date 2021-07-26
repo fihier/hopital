@@ -1,0 +1,125 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-4 border-right">
+      <div class="settings-tray">
+        <img class="profile-image" src="../../../../assets/img/pp.jpg" alt="pp">
+        <span class="settings-tray--right float-right">
+          <i class="icofont-refresh"></i>
+          <i class="icofont-comment"></i>
+          <i class="icofont-navigation-menu"></i>
+        </span>
+      </div>
+      <div class="search-box">
+        <div class="input-wrapper">
+          <i class="icofont-search-1"></i>
+          <input type="text" placeholder="search here">
+        </div>
+      </div>
+      <div class="friend-drawzer friend-drawzer--onhover">
+        <img src="../../../../assets/img/doctors/friend.jpg" alt="friend photo" class="profile-image">
+        <div class="text">
+          <h6>Larry Fichier</h6>
+          <p>Hey, you're arrested!</p>
+        </div>
+        <span class="time  small">13:21</span>
+      </div>
+      <hr>
+
+      <div class="friend-drawzer friend-drawzer--onhover">
+        <img src="../../../../assets/img/doctors/friend.jpg" alt="friend photo" class="profile-image">
+        <div class="text">
+          <h6>Larry Fichier</h6>
+          <p>Hey, you're arrested!</p>
+        </div>
+        <span class="time  small">13:21</span>
+      </div>
+      <hr>
+
+      <div class="friend-drawzer friend-drawzer--onhover">
+        <img src="../../../../assets/img/doctors/friend.jpg" alt="friend photo" class="profile-image">
+        <div class="text">
+          <h6>Larry Fichier</h6>
+          <p>Hey, you're arrested!</p>
+        </div>
+        <span class="time  small">13:21</span>
+      </div>
+      <hr>
+
+      <div class="friend-drawzer friend-drawzer--onhover">
+        <img src="../../../../assets/img/doctors/friend.jpg" alt="friend photo" class="profile-image">
+        <div class="text">
+          <h6>Larry Fichier</h6>
+          <p>Hey, you're arrested!</p>
+        </div>
+        <span class="time  small">13:21</span>
+      </div>
+      <hr>
+
+      <div class="friend-drawzer friend-drawzer--onhover">
+        <img src="../../../../assets/img/doctors/friend.jpg" alt="friend photo" class="profile-image">
+        <div class="text">
+          <h6>Larry Fichier</h6>
+          <p>Hey, you're arrested!</p>
+        </div>
+        <span class="time  small">13:21</span>
+      </div>
+      <hr>
+
+      <div class="friend-drawzer friend-drawzer--onhover">
+        <img src="../../../../assets/img/doctors/friend.jpg" alt="friend photo" class="profile-image">
+        <div class="text">
+          <h6>Larry Fichier</h6>
+          <p>Hey, you're arrested!</p>
+        </div>
+        <span class="time  small">13:21</span>
+      </div>
+      <hr>
+
+      <div class="friend-drawzer friend-drawzer--onhover">
+        <img src="../../../../assets/img/doctors/friend.jpg" alt="friend photo" class="profile-image">
+        <div class="text">
+          <h6>Larry Fichier</h6>
+          <p>Hey, you're arrested!</p>
+        </div>
+        <span class="time  small">13:21</span>
+      </div>
+      <hr>
+
+    </div>
+    <div class="col-md-8">
+      <div class="settings-tray">
+        <div class="friend-drawzer no-gutters friend-drawzer--grey">
+          <img src="../../../../assets/img/doctors/friend.jpg" alt="Friend Image" class="profile-image">
+          <div class="text">
+            <h6>Robot cop</h6>
+            <p>layin' down the low since like before Christ...</p>
+          </div>
+          <span class="float-right">
+            <i class="icofont-refresh"></i>
+            <i class="icofont-comment"></i>
+            <i class="icofont-navigation-menu"></i>
+          </span>
+        </div>
+      </div>
+      <div class="chat-panel">
+        <div class="row no-gutters">
+          <div class="col-md-3">
+            <div *ngFor="let message of messageList" class="chat-bubble chat-bubble--left">
+              <li>{{message}}</li>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+              <div class="chat-box-tray">
+                  <i class="icofont-slightly-smile"></i>
+                  <input [(ngModel)]="newMessage" (keyup)="$event.keyCode == 13 && sendMessage()" type="text" placeholder="type your message here...">
+                  <i class="icofont-mic"></i>
+                  <i (click)="sendMessage()" class="icofont-paper-plane righ"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

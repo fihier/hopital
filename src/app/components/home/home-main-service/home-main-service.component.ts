@@ -1,3 +1,4 @@
+import { KeycloakService } from 'keycloak-angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-main-service.component.css']
 })
 export class HomeMainServiceComponent implements OnInit {
-
-  constructor() { }
+  isAuth;
+  constructor(private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
+    this.isAuth = this.keycloakService.isLoggedIn;
   }
 
 }

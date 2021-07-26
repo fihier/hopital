@@ -1,12 +1,14 @@
 video{
   width: 200%;
   background: gray;
+  border-radius: 2%;
 }
 p.video-description{
   position: absolute;
   top: 0px;
   left: 5%;
 }
+
 
 button{
   margin: 1cm;

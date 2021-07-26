@@ -18,8 +18,10 @@ export class HomeuserComponent implements OnInit {
     this.initializeUserOption();
   }
 
+  public kci = this.keycloakService.getKeycloakInstance()
+
   private initializeUserOption(): void{
-    this.user = this.keycloakService.getUsername()
+    this.user = this.kci.tokenParsed.name;
   }
 
 }
