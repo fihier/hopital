@@ -1,0 +1,18 @@
+/* about */
+
+#about{
+	padding-top: 100px;
+	background:#1977cc;
+}
+.profile-picture{
+	text-align: center;
+	margin: 0 auto;
+    float: none;
+    width: 15%;
+    height: 15%;
+}
+#about .heading h1{
+	color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}

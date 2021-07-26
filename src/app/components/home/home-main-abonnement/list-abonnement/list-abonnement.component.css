@@ -1,0 +1,14 @@
+.btn{
+  margin-left: 95%;
+}
+i {
+  margin-top: 10px;
+  font-size: 25px;
+  color: #000;
+  padding-left: 15%;
+  transition: .3s;
+}
+i:hover{
+  color: #74b9ff;
+  cursor: pointer;
+}

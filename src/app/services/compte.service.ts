@@ -1,19 +1,22 @@
-import { HttpClient } from '@angular/common/http';
+import { KeycloakSecuService } from './keycloak-secu.service';
+import { KeycloakService } from 'keycloak-angular';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { Response } from '../../app/models/response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompteService {
 
-  private baseUrl = `${environment.API+'users'+'?API_KEY='+environment.API_KEY}`;
-  constructor(private http:HttpClient) {}
+  //public baseUrl = "http://192.168.1.140:9090/getPatients";
+  constructor(private http:HttpClient, private keycloakService: KeycloakSecuService) {}
 
-  getCompte():Observable<Response>{
-    return this.http.get<Response>(this.baseUrl);
+  public getCompte(){
+    return this.http.get("http://192.168.1.140:9090/getPatients")
+    //{headers: new HttpHeaders({Authorization: 'Bearer '+this.keycloakService.kc.token})})
   }
 
+  saveCompte(data){
+    return this.http.post("http://192.168.1.140:9090/createPatient", data);
+  }
 }

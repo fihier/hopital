@@ -51,17 +51,17 @@ export class RegisterComponent implements OnInit {
     const photoU = this.registerForm.get('photoUtilisateur').value;
     const passwordU = this.registerForm.get('passwordUtilisateur').value;
 
-    const newUser: Users = {adresseMailUtilisateur: emailU, 
-      numeroTelephoneUtilisateur: phoneU, 
-      nomUtilisateur:nomU, 
-      prenomUtilisateur:prenomU, 
+    const newUser: Users = {adresseMailUtilisateur: emailU,
+      numeroTelephoneUtilisateur: phoneU,
+      nomUtilisateur:nomU,
+      prenomUtilisateur:prenomU,
       dateNaissance:dateNaisU,
-      lieuNaissance:lieuNaisU, 
+      lieuNaissance:lieuNaisU,
       lieuResidence: adresseU,
       sexeUtilisateur: sexeU,
       photoUtilisateur:photoU,
-      passwordUtilisateur:passwordU, 
-    };   
+      passwordUtilisateur:passwordU,
+    };
     this.userService.createUser(newUser)
     .then((data)=>{
       this.errorMessage=null;
@@ -78,7 +78,6 @@ export class RegisterComponent implements OnInit {
       },3000)
       console.log(error);
     })
-    console.log(this.registerForm);
-    
+
   }
 }

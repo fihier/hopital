@@ -1,3 +1,4 @@
+import { KeycloakHttpInterceptorService } from './services/keycloak-http-interceptor.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component, APP_INITIALIZER } from '@angular/core';
 
@@ -27,7 +28,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeuserComponent } from './components/homeuser/homeuser.component';
 import { HomemedecinComponent } from './components/homemedecin/homemedecin.component';
-import { HeaderuserComponent } from './components/homeuser/headeruser/headeruser.component';
 import { HomeMainAbonnementComponent } from './components/home/home-main-abonnement/home-main-abonnement.component';
 import { ListAbonnementComponent } from './components/home/home-main-abonnement/list-abonnement/list-abonnement.component';
 import { CompteComponent } from './components/compte/compte.component';
@@ -39,6 +39,14 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './services/app.init';
 import { VideoCallComponent } from './components/home/video-call/video-call.component';
 import { ChatComponent } from './components/home/chat/chat.component';
+import { HomeAdminComponent } from './components/home-admin/home-admin.component';
+import { ListDocteurComponent } from './components/home/list-docteur/list-docteur.component';
+import { KeycloakSecuService } from './services/keycloak-secu.service';
+import { HomeOrdonanceComponent } from './components/home/home-ordonance/home-ordonance.component';
+
+// export function kcFactory(kcSecuty: KeycloakSecuService){
+//   return ()=> kcSecuty.init();
+// }
 
 const routes: Routes =[
   {
@@ -49,6 +57,11 @@ const routes: Routes =[
     component: ParametreComponent,
     canActivate: [AuthGuard],
     path: 'mesParametre'
+  },
+  {
+    component: HomeOrdonanceComponent,
+    canActivate: [AuthGuard],
+    path: 'ordonance'
   },
   {
     component: VideoCallComponent,
@@ -70,6 +83,11 @@ const routes: Routes =[
     path: 'homeUser'
   },
   {
+    component: HomeAdminComponent,
+    data: { roles: ['role_admin'] },
+    path: 'homeAmin'
+  },
+  {
     component: HomemedecinComponent,
     data: { roles: ['role_medecin'] },
     path: 'homeMedecin'
@@ -86,7 +104,12 @@ const routes: Routes =[
   {
     component: HomeMainAbonnementComponent,
     canActivate: [AuthGuard],
-    path: 'abonnement'
+    path: 'PrendreAbonnement'
+  },
+  {
+    component: ListDocteurComponent,
+    canActivate: [AuthGuard],
+    path: 'listDocteur'
   },
   {
     component: ListAbonnementComponent,
@@ -156,13 +179,15 @@ const routes: Routes =[
     RegisterComponent,
     HomeuserComponent,
     HomemedecinComponent,
-    HeaderuserComponent,
     ListAbonnementComponent,
     CompteComponent,
     ListCompteComponent,
     ParametreComponent,
     VideoCallComponent,
-    ChatComponent
+    ChatComponent,
+    HomeAdminComponent,
+    ListDocteurComponent,
+    HomeOrdonanceComponent
   ],
   imports: [
     BrowserModule,
@@ -181,6 +206,17 @@ const routes: Routes =[
       multi: true,
       deps: [KeycloakService],
     },
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: kcFactory,
+    //   multi: true,
+    //   deps: [KeycloakSecuService],
+    // }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: KeycloakHttpInterceptorService,
+    //   multi: true,
+    // }
   ],
   bootstrap: [AppComponent]
 })

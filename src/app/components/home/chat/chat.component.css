@@ -157,6 +157,15 @@ hr{
   font-size: 30px;
   vertical-align: middle;
 }
+
+.chat-box-tray .icofont-paper-plane:hover{
+ color: #74b9ff;
+}
+
 .chat-box-tray  .righ{
   margin-left: 10px;
+}
+.row{
+  position: relative;
+  padding-top: 0%;
 }

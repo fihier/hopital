@@ -4,8 +4,11 @@
 
 export const environment = {
   production: false,
-  API: "http://localhost/ecommerce/backend/api/",
-  API_KEY: "adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41",
+
+  // API: "http://localhost/ecommerce/backend/api/",
+  // API_KEY: "adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41",
+   API: "",
+  API_KEY: "",
 
   CHAT_URL: 'ws://echo.websocket.org/',
 

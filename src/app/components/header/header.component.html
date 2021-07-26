@@ -8,24 +8,13 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active" *ngIf="!isAuth"><a href="index.html">Accueil</a></li>
-          <li class="active" *ngIf="isAuth"><a routerLink="/homeUser">Accueil</a></li>
+          <li class="active" *ngIf="patient"><a routerLink="/homeUser">Accueil</a></li>
+          <li class="active" *ngIf="roles"><a routerLink="/homeAmin">Accueil</a></li>
           <li routerLinkActive="active" *ngIf="!isAuth"><a routerLink="/about">A propos</a></li>
           <li  routerLinkActive="active"><a routerLink="/service">Services</a></li>
+          <li  routerLinkActive="active" *ngIf="!patient && !roles"><a routerLink="/doctor">Docteurs</a></li>
           <li  routerLinkActive="active"><a routerLink="/departement">Departements</a></li>
-          <li class="drop-down" *ngIf="!isAuth"><a href="/doctor">Docteurs</a>
-            <ul>
-              <li><a routerLink="/doctor">Contacter</a></li>
-              <li class="drop-down" *ngIf="isAuth"><a >Parametre</a>
-                <ul>
-                  <li><a style="cursor: pointer;">Ajouter</a></li>
-                  <li><a style="cursor: pointer;">Modifier</a></li>
-                  <li><a style="cursor: pointer;">Supprimer</a></li>
-                  <li><a style="cursor: pointer;">Suspendre</a></li>
-                </ul>
-              </li>
-              <li><a >Liste</a></li>
-            </ul>
-          </li>
+          <li  routerLinkActive="active" *ngIf="roles"><a routerLink="/listDocteur">Docteurs</a></li>
           <!-- <li class="drop-down"><a href="">Drop Down</a>
             <ul>
               <li><a >Drop Down 1</a></li>
@@ -45,24 +34,24 @@
           </li> -->
           <li class="drop-down" *ngIf="isAuth"><a style="cursor: pointer;">Abonnement</a>
             <ul>
-              <li routerLinkActive="active"><a routerLink="/abonnement" style="cursor: pointer;">Prendre Abonnement</a></li>
-              <li routerLinkActive="active" *ngIf="!isAdmin()"><a style="cursor: pointer;">Modifier Abonnement</a></li>
-              <li routerLinkActive="active" *ngIf="!isAdmin()"><a routerLink="/listAbonnement" style="cursor: pointer;">Liste des Abonnements</a></li>
+              <li routerLinkActive="active" *ngIf="!roles"><a routerLink="/PrendreAbonnement" style="cursor: pointer;">Prendre Abonnement</a></li>
+              <li routerLinkActive="active" ><a routerLink="/listAbonnement" style="cursor: pointer;">Liste des Abonnements</a></li>
             </ul>
           </li>
           <li  routerLinkActive="active" *ngIf="!isAuth"><a routerLink="/contact">Contact</a></li>
 
           <li class="drop-down" *ngIf="isAuth"><a href="">Parametre</a>
             <ul>
-              <li><a routerLink="/doctor">Suggestion</a></li>
-              <li class="drop-down" *ngIf="!isAdmin()"><a >Compte</a>
+              <li><a (click)="changePwd()" style="cursor: pointer;">Changer password</a></li>
+              <li  *ngIf="!roles"><a style="cursor: pointer;">Mes payements</a></li>
+              <li class="drop-down" *ngIf="roles"><a >Compte</a>
                 <ul>
                   <li><a style="cursor: pointer;">Modifier</a></li>
                   <li><a style="cursor: pointer;">Supprimer</a></li>
                   <li><a style="cursor: pointer;">Suspendre</a></li>
                 </ul>
               </li>
-              <li *ngIf="!isAdmin()"><a routerLink="/listCompte" >Liste</a></li>
+              <li *ngIf="roles"><a routerLink="/listCompte" >Liste</a></li>
             </ul>
           </li>
         </ul>

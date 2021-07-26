@@ -1,38 +1,127 @@
 <div class="section-title" style="padding-top: 5%;">
-    <h2>Liste des Compte</h2>
-  </div>
+  <h2>Liste des Comptes</h2>
+</div>
 <div class="container-fluid">
+  <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal"
+    data-whatever="@getbootstrap">Nouveau</button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Formulaire d'Enregistrement du Patient</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="registerForm">
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="text" formControlName="nom" name="nom" class="form-control" id="nom" placeholder="Nom" />
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="text" class="form-control" formControlName="prenom" name="prenom" id="prenom"
+                  placeholder="Prenom" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="text" formControlName="adresse" name="adresse" class="form-control" id="adresse"
+                  placeholder="adresse" />
+              </div>
+              <div class="col-md-6 form-group">
+                <select name="sexe" formControlName="sexe" id="sexe" class="form-control">
+                  <option value="">Sexe</option>
+                  <option value="maxculin">Maxculin</option>
+                  <option value="feminin">Feminin</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="number" formControlName="phone" name="phone" class="form-control" id="phone"
+                  placeholder="Phone" />
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="email" class="form-control" formControlName="email" name="email" id="email"
+                  placeholder="email" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="date" formControlName="dateNais" name="dateNais" class="form-control" id="dateNais"
+                  placeholder="date de Naissance" />
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="text" formControlName="lieuNais" class="form-control" name="lieuNais" id="lieuNais"
+                  placeholder="lieu de Naissance" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="password" formControlName="password" name="password" class="form-control" id="password"
+                  placeholder="password" />
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="password" formControlName="confirmPassword" class="form-control" name="confirmPassword"
+                  id="confirmPassword" placeholder="confirme Password" />
+              </div>
+            </div>
+            <div class="col-md-16 form-group">
+              <input type="file" class="form-control" formControlName="photo" name="photo" id="photo"
+                placeholder="photo de profile" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button (click)=" onSubmit()" [disabled]="registerForm.invalid" style="cursor: pointer;"
+            class="btn btn-primary">Cree a compte</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
     <table class="table">
-        <thead>
-            <tr class="table-light">
-                <th scope="col">#</th>
-                <th scope="col">email</th>
-                <th scope="col">phone</th>
-                <th scope="col">nom</th>
-                <th scope="col">prenom</th>
-                <th scope="col">Date Nais</th>
-                <th scope="col">Lieu</th>
-                <th scope="col">sexe</th>
-                <th scope="col">adresse</th>
-                <th scope="col">Id patient</th>
-                <th scope="col">Compte</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let compte of comptes">
-            <tr>
-                <th scope="row">{{ compte.idUtilisateur }}</th>
-                <th>{{ compte.adresseMailUtilisateur }}</th>
-                <th>{{ compte.numeroTelephoneUtilisateur }}</th>
-                <th>{{ compte.nomUtilisateur }}</th>
-                <th>{{ compte.prenomUtilisateur }}</th>
-                <th>{{ compte.dateNaissance }}</th>
-                <th>{{ compte.lieuNaissance }}</th>
-                <th>{{ compte.sexeUtilisateur }}</th>
-                <th>{{ compte.lieuResidence }}</th>
-                <th>{{ compte.idPatient }}</th>
-                <th>{{ compte.compte }}</th>
-            </tr>
-            <!-- <tr>
+      <thead>
+        <tr class="table-light">
+          <th scope="col">#</th>
+          <th scope="col">email</th>
+          <th scope="col">phone</th>
+          <th scope="col">nom</th>
+          <th scope="col">prenom</th>
+          <th scope="col">Date Nais</th>
+          <th scope="col">Lieu</th>
+          <th scope="col">sexe</th>
+          <th scope="col">adresse</th>
+          <th scope="col">Id patient</th>
+          <th scope="col">Compte</th>
+          <th scope="col">Operations</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let compte of comptes">
+        <tr>
+          <th scope="row">{{ compte.idUtilisateur }}</th>
+          <th>{{ compte.adresseMailUtilisateur }}</th>
+          <th>{{ compte.numeroTelephoneUtilisateur }}</th>
+          <th>{{ compte.nomUtilisateur }}</th>
+          <th>{{ compte.prenomUtilisateur }}</th>
+          <th>{{ compte.dateNaissance }}</th>
+          <th>{{ compte.lieuNaissance }}</th>
+          <th>{{ compte.sexeUtilisateur }}</th>
+          <th>{{ compte.lieuResidence }}</th>
+          <th>{{ compte.idPatient }}</th>
+          <th>{{ compte.compte }}</th>
+          <th>
+            <div class="row">
+              <div class="col-md-6">
+                <i class="icofont-edit"></i>
+                <i class="icofont-bin"></i>
+              </div>
+            </div>
+          </th>
+        </tr>
+        <!-- <tr>
                 <th scope="row">{{abonnement.idAbonnement}}</th>
                 <th>{{abonnement.libelleAbonnement}}</th>
                 <th>{{abonnement.dateAbonnement}}</th>
@@ -41,6 +130,6 @@
                 <td>{{abonnement.dureeAbonnement}}</td>
                 <td>{{abonnement.prixAbonnement}}</td>
             </tr> -->
-        </tbody>
+      </tbody>
     </table>
-</div>
+  </div>

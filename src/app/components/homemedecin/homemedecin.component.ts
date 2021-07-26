@@ -1,3 +1,4 @@
+import { KeycloakSecuService } from './../../services/keycloak-secu.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,5 +12,4 @@ export class HomemedecinComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

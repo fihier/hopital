@@ -15,15 +15,15 @@ export class ListAbonnementComponent implements OnInit {
   constructor(private abonServ:AbonnementService) { }
 
   ngOnInit(): void {
-    this.abonSub = this.abonServ.getAbonnement().subscribe(
-      (response:Response)=>{
-        //console.log(response);
-        this.abonnements = response.result;
-      },
-      (error)=>{
-        console.log(error);
-      }
-    )
+    // this.abonSub = this.abonServ.getAbonnement().subscribe(
+    //   (response:Response)=>{
+    //     //console.log(response);
+    //     this.abonnements = response.result;
+    //   },
+    //   (error)=>{
+    //     console.log(error);
+    //   }
+    // )
   }
 
 }

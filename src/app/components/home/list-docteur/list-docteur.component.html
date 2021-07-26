@@ -1,0 +1,97 @@
+<div class="section-title" style="padding-top: 5%;">
+  <h2>Liste des Medecins</h2>
+</div>
+<div class="container-fluid">
+  <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Nouveau</button>
+<script>
+  $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
+</script>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enregistrement des medecins</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="doctForm">
+          <div class="form-row">
+            <div class="col-lg form-group">
+              <input type="text" formControlName="nom" name="nom" class="form-control" id="nom" placeholder="Nom"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 form-group">
+              <input type="text" formControlName="anneeExperience" name="anneeExperience" class="form-control" id="anneeExperience" placeholder="annee d'experience"  />
+            </div>
+            <div class="col-md-6 form-group">
+              <input type="phone" class="form-control" formControlName="phone" name="phone" id="phone" placeholder="phone"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 form-group">
+              <input type="email" formControlName="email" name="email" class="form-control" id="email" placeholder="adresse email"  />
+            </div>
+            <div class="col-md-6 form-group">
+              <input type="text" class="form-control" formControlName="adresse" name="adresse" id="adresse" placeholder="Adresse"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg form-group">
+              <input type="text" class="form-control" formControlName="specialite" name="specialite" id="specialite" placeholder="Specialité" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="onSubmit()" class="btn btn-success">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <table class="table">
+      <thead>
+          <tr class="table-light">
+              <th scope="col">#</th>
+              <th scope="col">nom</th>
+              <th scope="col">Specialité</th>
+              <th scope="col">Année d'Experience</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
+              <th scope="col">Adresse</th>
+              <th scope="col">Operation</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let doct of docteurs">
+          <tr>
+              <th scope="row">{{docteurs.idMedecin}}</th>
+              <th>{{docteurs.nom}}</th>
+              <th>{{docteurs.specialite}}</th>
+              <th>{{docteurs.annee_experience}}</th>
+              <th>{{docteurs.phone}}</th>
+              <th>{{docteurs.email}}</th>
+              <th>{{docteurs.adresse}}</th>
+              <th>
+                <div class="row">
+                  <div class="col-md-6">
+                    <i class="icofont-edit"></i>
+                    <i class="icofont-bin"></i>
+                  </div>
+                </div>
+              </th>
+          </tr>
+      </tbody>
+  </table>
+</div>

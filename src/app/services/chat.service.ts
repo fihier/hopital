@@ -1,7 +1,6 @@
-import { environment } from 'src/environments/environment';
-import { WebsocketService } from './websocket.service';
-import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { io } from "socket.io-client";
 
 export interface Message{
   author: string,
@@ -11,18 +10,22 @@ export interface Message{
   providedIn: 'root'
 })
 export class ChatService {
-  // public messages: Subject<Message>;
-  // constructor(private wsService: WebsocketService) { 
+  public message$: BehaviorSubject<string> = new BehaviorSubject('');
+  constructor() {}
 
-  // this.messages = <Subject<Message>>wsService
-  // .connect(environment.CHAT_URL)
-  // .map((response: MessageEvent): Message => {
-  //   let data = JSON.parse(response.data);
-  //   return {
-  //     author: data.author,
-  //     message: data.message
-  //   }
-  // })
-  // }
-  
+  socket = io('http://localhost:3000');
+
+  public sendMessage(message) {
+    this.socket.emit('message', message);
+  }
+
+  public getNewMessage = () => {
+    this.socket.on('message', (message) =>{
+      this.message$.next(message);
+    });
+
+    return this.message$.asObservable();
+  };
+
 }
+

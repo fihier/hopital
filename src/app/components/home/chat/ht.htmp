@@ -1,15 +1,4 @@
-<div class="container">
-  <div class="row no-gutters">
-    <div class="col-md-4 border-right">
-      <div class="settings-tray">
-        <img class="profile-image" src="../../../../assets/img/pp.jpg" alt="pp">
-        <span class="settings-tray--right float-right">
-          <i class="icofont-refresh"></i>
-          <i class="icofont-comment"></i>
-          <i class="icofont-navigation-menu"></i>
-        </span>
-      </div>
-      <div class="search-box">
+<div class="search-box">
         <div class="input-wrapper">
           <i class="icofont-search-1"></i>
           <input type="text" placeholder="search here">
@@ -104,22 +93,83 @@
       <div class="chat-panel">
         <div class="row no-gutters">
           <div class="col-md-3">
-            <div *ngFor="let message of messageList" class="chat-bubble chat-bubble--left">
-              <li>{{message}}</li>
+            <div class="chat-bubble chat-bubble--left">
+              Hello dude
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-              <div class="chat-box-tray">
-                  <i class="icofont-slightly-smile"></i>
-                  <input [(ngModel)]="newMessage" (keyup)="$event.keyCode == 13 && sendMessage()" type="text" placeholder="type your message here...">
-                  <i class="icofont-mic"></i>
-                  <i (click)="sendMessage()" class="icofont-paper-plane righ"></i>
+        <div class="row no-gutters">
+          <div class="col-md-3 offset-md-9">
+            <div class="chat-bubble chat-bubble--blue chat-bubble--right">
+              Hi mate!
+            </div>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-md-3 offset-md-9">
+            <div class="chat-bubble chat-bubble--blue chat-bubble--right">
+              Hi mate!
+            </div>
+          </div>
+        </div>
+        <div class="chat-panel">
+          <div class="row no-gutters">
+            <div class="col-md-3">
+              <div class="chat-bubble chat-bubble--left">
+                Hello dude
+              </div>
+            </div>
+          </div>
+          <div class="chat-panel">
+            <div class="row no-gutters">
+              <div class="col-md-3">
+                <div class="chat-bubble chat-bubble--left">
+                  Hello dude
+                </div>
+              </div>
+            </div>
+            <div class="chat-panel">
+              <div class="row no-gutters">
+                <div class="col-md-3">
+                  <div class="chat-bubble chat-bubble--left">
+                    Hello dude
+                  </div>
+                </div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col-md-3 offset-md-9">
+                  <div class="chat-bubble chat-bubble--blue chat-bubble--right">
+                    Hi mate!
+                  </div>
+                </div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col-md-3 offset-md-9">
+                  <div class="chat-bubble chat-bubble--blue chat-bubble--right">
+                    Hi mate!
+                  </div>
+                </div>
+              </div>
+              <div class="chat-panel">
+                <div class="row no-gutters">
+                  <div class="col-md-3">
+                    <div class="chat-bubble chat-bubble--left">
+                      Hello dude
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="chat-box-tray">
+                      <i class="icofont-slightly-smile"></i>
+                      <input type="text" placeholder="type your message here...">
+                      <i class="icofont-mic"></i>
+                      <i class="icofont-paper-plane righ"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
